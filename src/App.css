@@ -1,38 +1,68 @@
-.App {
+:root {
+  --grid-gap: 10px;
+  --background-color: #f5f5f5;
+  --padding: 20px;
+  --border-radius: 10px;
+  --box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  --text-color: #333;
+  --button-padding: 10px 20px;
+  --accept-button-color: #4caf50;
+  --deny-button-color: #f44336;
+  --button-text-color: white;
+  --button-border: none;
+  --button-border-radius: 5px;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: var(--grid-gap);
+  background-color: var(--background-color);
+  padding: var(--padding);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.current-player {
+  grid-column: span 4;
   text-align: center;
+  color: var(--text-color);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.match-buttons {
+  grid-column: span 4;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: var(--grid-gap);
 }
 
-.App-link {
-  color: #61dafb;
+.accept-button {
+  padding: var(--button-padding);
+  background-color: var(--accept-button-color);
+  color: var(--button-text-color);
+  border: var(--button-border);
+  border-radius: var(--button-border-radius);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.deny-button {
+  padding: var(--button-padding);
+  background-color: var(--deny-button-color);
+  color: var(--button-text-color);
+  border: var(--button-border);
+  border-radius: var(--button-border-radius);
 }
+
+.game-over {
+  grid-column: span 4;
+  text-align: center;
+  color: var(--text-color);
+}
+
+
+
+
+
+
+
+

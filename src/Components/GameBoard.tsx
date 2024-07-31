@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import { useCardFlip } from './useCardFlip';
 
+
 const suggestions = ['Camping', 'Movie Night', 'Cooking Together', 'Hiking', 'Picnic in the Park', 'Visit a Museum', 'Beach Day', 'Bike Ride', 'Game Night', 'Wine Tasting', 'Dance Class', 'DIY Project'];
 const deck = [...suggestions, ...suggestions];
 
@@ -55,8 +56,8 @@ const GameBoard: React.FC = () => {
   };
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows: 'repeat(6, 1fr)' }}>
-      <h2>Current Player: {currentPlayer}</h2>
+    <div className="game-board">
+      <h2 className="current-player">Current Player: {currentPlayer}</h2>
       {shuffledDeck.map((suggestion, index) => (
         <Card
           key={index}
@@ -66,12 +67,12 @@ const GameBoard: React.FC = () => {
         />
       ))}
       {match && (
-        <div>
-          <button onClick={handleAccept}>Accept</button>
-          <button onClick={handleDeny}>Deny</button>
+        <div className="match-buttons">
+          <button className="accept-button"  onClick={handleAccept}>Accept</button>
+          <button className="deny-button"  onClick={handleDeny}>Deny</button>
         </div>
       )}
-      {gameOver && <div>Game Over. Enjoy your date!</div>}
+      {gameOver && <div className="game-over">Game Over. Enjoy your date!</div>}
     </div>
   );
 };
