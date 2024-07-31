@@ -26,6 +26,7 @@ export const useCardFlip = (deck: string[]) => {
     if (flippedCards.length === 2) {
       checkMatch();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flippedCards]);
 
   return { flippedCards, flipCard, match, unflipCards };

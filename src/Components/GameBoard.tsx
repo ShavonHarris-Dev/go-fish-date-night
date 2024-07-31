@@ -20,13 +20,17 @@ function shuffle(array: string[]) {
 
   return array;
 }
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
 const GameBoard: React.FC = () => {
   const [shuffledDeck, setShuffledDeck] = useState<string[]>([]);
   const { flippedCards, flipCard, match, unflipCards } = useCardFlip(shuffledDeck);
   const [gameOver, setGameOver] = useState<boolean>(false);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const [currentPlayer, setCurrentPlayer] = useState<'Player 1' | 'Player 2'>('Player 1');
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [turns, setTurns] = useState<number>(0);
+ const [isAccepted, setIsAccepted] = useState(false);
 
   useEffect(() => {
     setShuffledDeck(shuffle(deck));
@@ -46,6 +50,7 @@ const GameBoard: React.FC = () => {
     if (match) {
       setGameOver(true);
     }
+    setIsAccepted(true);
   };
 
   const handleDeny = () => {
@@ -54,6 +59,8 @@ const GameBoard: React.FC = () => {
       alert('Continue finding matches');
     }
   };
+
+
 
   return (
     <div className="game-board">
@@ -64,12 +71,19 @@ const GameBoard: React.FC = () => {
           suggestion={suggestion}
           onFlip={() => handleFlip(index)}
           isFlipped={flippedCards.includes(index)}
+          isMatch={match && flippedCards.includes(index)} 
         />
       ))}
       {match && (
         <div className="match-buttons">
           <button className="accept-button"  onClick={handleAccept}>Accept</button>
-          <button className="deny-button"  onClick={handleDeny}>Deny</button>
+          <button 
+          className="deny-button" 
+           onClick={handleDeny}
+           disabled={isAccepted}
+           >
+            Deny
+            </button>
         </div>
       )}
       {gameOver && <div className="game-over">Game Over. Enjoy your date!</div>}

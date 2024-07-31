@@ -4,9 +4,10 @@ interface CardProps {
   suggestion: string;
   onFlip: () => void;
   isFlipped: boolean;
+  isMatch: boolean;
 }
 
-const Card: React.FC<CardProps> = ({ suggestion, onFlip, isFlipped }) => {
+const Card: React.FC<CardProps> = ({ suggestion, onFlip, isFlipped, isMatch }) => {
   const cardStyle: React.CSSProperties = {
     cursor: 'pointer',
     border: '1px solid black',
@@ -22,6 +23,7 @@ const Card: React.FC<CardProps> = ({ suggestion, onFlip, isFlipped }) => {
 
   return (
     <div
+    className={`card ${isFlipped ? 'flipped' : ''} ${isMatch ? 'match' : ''}`}
       onClick={onFlip}
       style={cardStyle}
       role="button"

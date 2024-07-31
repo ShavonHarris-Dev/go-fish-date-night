@@ -18,7 +18,7 @@
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(6, 1fr);
   gap: var(--grid-gap);
-  background-color: var(--background-color);
+  background-color: #ffe6e6; /* Light red background */
   padding: var(--padding);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
@@ -27,7 +27,7 @@
 .current-player {
   grid-column: span 4;
   text-align: center;
-  color: var(--text-color);
+  color: #ff4d4d; /* Red text color */
 }
 
 .match-buttons {
@@ -39,7 +39,7 @@
 
 .accept-button {
   padding: var(--button-padding);
-  background-color: var(--accept-button-color);
+  background-color: #4caf50; /* Green button */
   color: var(--button-text-color);
   border: var(--button-border);
   border-radius: var(--button-border-radius);
@@ -47,7 +47,7 @@
 
 .deny-button {
   padding: var(--button-padding);
-  background-color: var(--deny-button-color);
+  background-color: #f44336; /* Red button */
   color: var(--button-text-color);
   border: var(--button-border);
   border-radius: var(--button-border-radius);
@@ -56,10 +56,26 @@
 .game-over {
   grid-column: span 4;
   text-align: center;
-  color: var(--text-color);
+  color: #ff4d4d; /* Red text color */
 }
 
+.card {
+  transition: transform 0.3s ease-in-out;
+  background-color: #fff; /* White card background */
+  color: #333; /* Dark text color */
+}
 
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card {
+  perspective: 1000px;
+}
+
+.card.match {
+  background-color: yellow;
+}
 
 
 
