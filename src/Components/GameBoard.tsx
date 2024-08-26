@@ -69,6 +69,8 @@ const GameBoard: React.FC = () => {
         <Card
           key={index}
           suggestion={suggestion}
+          // onFlip is a function attached to the Card component that is called when the card is clicked. When you click the card
+          // it calls the handleFlip function and passes the index of the card to the function.
           onFlip={() => handleFlip(index)}
           isFlipped={flippedCards.includes(index)}
           isMatch={match && flippedCards.includes(index)} 
